@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      name="description"
+      content="<__________Jeopardy Quiz by Rayhanjahzari & Imam Ahmad__________"
+    />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jeopardy - HDSC</title>
+
+    <link rel="icon" href="icon2.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+
+  <body>
+    <header>Edu-Jeopardy</header>
+    <div class="divider"></div>
+
+    <main>
+      <div class="boardgame" id="board">
+        <div class="category-header">Matematika Dasar</div>
+        <div class="category-header">Biologi</div>
+        <div class="category-header">Kedokteran Gigi Dasar</div>
+      </div>
+    </main>
+
+    <div class="modal-overlay" id="modal">
+      <div class="modal-content">
+        <div id="attempt">Question 1 of 3</div>
+        <div id="question">Question Question Question Question</div>
+        <div id="answer">Answer Answer Answer Answer</div>
+
+        <div class="controls">
+          <button class="btn-reveal" onclick="showAnswer()">Show Answer</button>
+          <button class="btn-correct" onclick="handleCorrect()">CORRECT</button>
+          <button class="btn-wrong" onclick="handleWrong()">WRONG</button>
+          <button class="btn-close" onclick="closeModal()">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <footer>test</footer> -->
+  </body>
+</html>

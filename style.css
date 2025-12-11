@@ -1,0 +1,192 @@
+@font-face {
+    font-family: 'Paytone One';
+    src: url('PaytoneOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+    font-family: 'Tahoma', sans-serif;
+    /* background-color: #43456c; */
+}
+
+header {
+    color: #4082b9;
+    width: 100%;
+    padding: 6px 0 0 0;
+    margin-top: -6px;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0;
+    font-family: 'Paytone One', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #9ab0c8;
+    background-image: url('bg1.png');
+    background-size: cover;
+    color: #53381b;
+}
+
+#board,
+.boardgame {
+    align-items: center;
+    margin: 60px auto 0 auto;
+    margin-bottom: 56px;
+    width: 90%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    gap: 10px ;
+    padding-top: 0;
+}
+
+.category-header {
+    background-color: #42446b;
+    color: #d3cebb;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px 5px;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 0px #000;
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+.point-card {
+    /* background-color: #6b7aa1; */
+    background-color: #ffffff;
+    color: #000;
+    font-size: 1.3rem;
+    padding: 30px 0;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border: 1px solid #333;
+}
+
+.point-card:hover {
+    background-color: #556494;
+    /* color: #d3cebb; */
+    color: #fff;
+    transform: scale(1.035);
+}
+
+.point-card.solved {
+    background-color: #2e3a57;
+    color: #777;
+    cursor: default;
+    text-decoration: line-through;
+    pointer-events: none;
+    border-color: #555;
+}
+
+.point-card.failed {
+    background-color: #8b0000 !important;
+    color: #fff !important;
+    cursor: default;
+    text-decoration: line-through;
+    pointer-events: none;
+    border-color: #550000;
+}
+/* .flip-horizontal-fwd {
+	-webkit-animation: flip-horizontal-fwd 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+	        animation: flip-horizontal-fwd 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+} */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #6b7aa1;
+    border: 2px solid #fff;
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+#question {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+    font-family: 'Tahoma', sans-serif;
+    line-height: 1.4;
+}
+
+#answer {
+    font-size: 1.3rem;
+    margin-top: 20px;
+    font-family: 'Tahoma', sans-serif;
+    display: none;
+    font-weight: bold;
+    line-height: 1.4;
+    color: #ffeb3b;
+}
+
+#attempt {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-reveal { background: #FFD700; color: black; }
+.btn-correct { background: #28a745; color: white; display: none; }
+.btn-wrong { background: #dc3545; color: white; display: none; }
+.btn-close { background: #6c757d; color: white; display: none; }
+
+.btn-reveal:hover { background: #e6c200; }
+.btn-correct:hover { background: #218838; }
+.btn-wrong:hover { background: #c82333; }
+.btn-close:hover { background: #5a6268; }
+
+/* Responsive Text */
+@media (max-width: 768px) {
+    .category-header { font-size: 1rem; }
+    .point-tile { font-size: 2rem; height: 80px; }
+    #question-text { font-size: 1.5rem; }
+}

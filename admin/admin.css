@@ -1,0 +1,245 @@
+.login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.login-box {
+    background: #6b7aa1;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    min-width: 300px;
+}
+
+.login-box h1 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-family: 'Paytone One', sans-serif;
+}
+
+.login-box p {
+    color: #d3cebb;
+    margin-bottom: 20px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #42446b;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    background: #4082b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-box button:hover {
+    background: #2d5f8a;
+}
+
+.error-message {
+    color: #ff6b6b;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    min-height: 20px;
+}
+
+.admin-panel header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #42446b;
+    color: #fff;
+}
+
+.admin-panel header h1 {
+    font-family: 'Paytone One', sans-serif;
+    margin: 0;
+}
+
+#logout-btn {
+    padding: 10px 20px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#logout-btn:hover {
+    background: #c82333;
+}
+
+.admin-board {
+    align-items: center;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    gap: 10px;
+}
+
+.admin-card {
+    background-color: #ffffff;
+    color: #000;
+    font-size: 1.3rem;
+    padding: 30px 0;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border: 2px solid #4082b9;
+}
+
+.admin-card:hover {
+    background-color: #4082b9;
+    color: #fff;
+    transform: scale(1.035);
+}
+
+.admin-card.waiting-questions:hover {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.admin-card.has-questions {
+    border-color: #28a745;
+}
+
+.admin-card.has-questions::after {
+    content: " ✓";
+    color: #28a745;
+    font-weight: bold;
+}
+
+.admin-card.waiting-questions {
+    border-color: #ffc107;
+    background-color: #fff9e6;
+}
+
+.admin-card.waiting-questions::after {
+    content: " ⏳";
+    color: #ffc107;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.editor-modal {
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.editor-modal h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-family: 'Paytone One', sans-serif;
+}
+
+.question-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.question-item h3 {
+    color: #ffeb3b;
+    margin-bottom: 10px;
+}
+
+.question-item label {
+    display: block;
+    color: #fff;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.question-item textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #42446b;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-family: 'Tahoma', sans-serif;
+    resize: vertical;
+    min-height: 60px;
+}
+
+.editor-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-save {
+    padding: 12px 30px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.btn-save:hover {
+    background: #218838;
+}
+
+.btn-cancel {
+    padding: 12px 30px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-cancel:hover {
+    background: #5a6268;
+}
+
+.save-status {
+    margin-top: 15px;
+    text-align: center;
+    min-height: 25px;
+    font-weight: bold;
+}
+
+.save-status.success {
+    color: #28a745;
+}
+
+.save-status.error {
+    color: #dc3545;
+}
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin - Jeopardy Quiz</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+      <div class="login-box">
+        <h1>Admin Access</h1>
+        <p>Enter passcode to edit questions</p>
+        <input type="password" id="passcode-input" placeholder="Enter passcode" />
+        <button id="login-btn" onclick="handleLogin()">Login</button>
+        <div id="login-error" class="error-message"></div>
+      </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel" class="admin-panel" style="display: none;">
+      <header>
+        <h1>Edu-Jeopardy Admin</h1>
+        <button id="logout-btn" onclick="handleLogout()">Logout</button>
+      </header>
+
+      <main>
+        <div class="admin-board" id="admin-board">
+          <div class="category-header">Matematika Dasar</div>
+          <div class="category-header">Biologi</div>
+          <div class="category-header">Kedokteran Gigi Dasar</div>
+        </div>
+      </main>
+
+      <!-- Question Editor Modal -->
+      <div class="modal-overlay" id="editor-modal">
+        <div class="modal-content editor-modal">
+          <h2 id="editor-title">Edit Questions</h2>
+          <div id="question-editor">
+            <!-- Questions will be dynamically inserted here -->
+          </div>
+          <div class="editor-controls">
+            <button class="btn-save" onclick="saveQuestions(false)">Save</button>
+            <button class="btn-cancel" onclick="closeEditor()">Cancel</button>
+          </div>
+          <div id="save-status" class="save-status"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
+
