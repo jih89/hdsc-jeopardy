@@ -16,6 +16,10 @@
       "dest": "/admin/$1.html"
     },
     {
+      "src": "^/admin/?$",
+      "dest": "/admin/index.html"
+    },
+    {
       "src": "/(.*\\.(html|css|js|png|jpg|ico|ttf))",
       "dest": "/$1"
     },
