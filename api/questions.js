@@ -1,21 +1,4 @@
-import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-// Lazy load db module
-let getDbClient;
-async function loadDb() {
-  if (!getDbClient) {
-    // From /api/questions.js, go up 1 level to root, then into lib
-    const dbModulePath = resolve(__dirname, '..', 'lib', 'db.js');
-    const dbUrl = `file://${dbModulePath}`;
-    const dbModule = await import(dbUrl);
-    getDbClient = dbModule.getDbClient;
-  }
-  return getDbClient;
-}
+import { getDbClient } from '../lib/db.js';
 
 export default async function handler(req, res) {
   // Set CORS headers
@@ -27,8 +10,7 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  const dbClient = await loadDb();
-  const db = dbClient();
+  const db = getDbClient();
 
   if (req.method === 'GET') {
     try {

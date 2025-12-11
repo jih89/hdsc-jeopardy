@@ -1,23 +1,5 @@
 import crypto from 'crypto';
-import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-// Lazy load db module
-let getDbClient;
-async function loadDb() {
-  if (!getDbClient) {
-    // From /api/auth/login.js, go up 2 levels to root, then into lib
-    const dbModulePath = resolve(__dirname, '..', '..', 'lib', 'db.js');
-    // Convert to proper file:// URL format
-    const dbUrl = `file://${dbModulePath}`;
-    const dbModule = await import(dbUrl);
-    getDbClient = dbModule.getDbClient;
-  }
-  return getDbClient;
-}
+import { getDbClient } from '../../lib/db.js';
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -65,8 +47,7 @@ export default async function handler(req, res) {
     expiresAt.setHours(expiresAt.getHours() + 24); // 24 hour expiry
 
     // Store session in database
-    const dbClient = await loadDb();
-    const db = dbClient();
+    const db = getDbClient();
     await db.execute(
       'INSERT INTO admin_sessions (session_token, expires_at) VALUES (?, ?)',
       [sessionToken, expiresAt.toISOString()]
