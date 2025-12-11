@@ -81,8 +81,6 @@ export default async function handler(req, res) {
       }
 
       const token = authHeader.substring(7);
-      const dbClient = await loadDb();
-      const db = dbClient();
       
       // Verify session token
       const sessionResult = await db.execute(
